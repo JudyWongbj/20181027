@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*倒计时原理：
+            1、未来的时间
+            2、现在的时间（每分每秒都在动)
+
+            未来的减去现在的 = 剩下的时间
+
+            设置未来的时间
+             字符串 new Date ('年 月 日 时：分：秒')
+            
+            console.log(new Date('2018 10 27 15:40:00'))
+
+            数字版
+
+            console.log(new Date(年，月，日，时：分：秒))
+            console.log(new Date(2018,9,27,15,40))
+            注意：  设置的时候要减去1.
+
+
+
+        daojishiy */
+
+
+        let newDate = new Date('2018 10 28 16:00:00');//未来的时间
+
+        let timer = setInterval(function(){
+            let nowDate = new Date();
+            let t = (newDate - nowDate)/1000;
+
+            // 86400 3600 60
+           let d =Math.floor(t/86400) ;
+           t %= 86400;
+           let h = Math.floor(t/3600);
+           t %= 3600;
+           let m = Math.floor(t/60)
+            console.log(t)
+            t %= 60
+        },1000)
+    
+    </script>
+</body>
+</html>

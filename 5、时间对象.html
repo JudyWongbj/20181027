@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* new Date()
+            获取当前用户的本地时间（用户的本地时间是不可靠的）
+
+            在真正的开发中，要获取服务器的事件（相对安全）
+
+
+
+        时间戳：
+        从1970年的01月01日00时00分00秒到现在的时间
+        newDate().getTime();
+        console.log(new Date());
+        console.log(new Date().getTime()); //number类型
+        console.log(Date.now());
+        console.log(+new Date)
+
+            */
+    console.log(new Date());
+    console.log(new Date().getTime()); //number类型
+    console.log(Date.now());
+    console.log(+new Date)
+
+    console.log()
+
+    let t = new Date()
+    //获取当前的年份
+    console.log(t.getFullYear());
+    //获取当前的月份  获取来的月需要加1
+    console.log(t.getMonth() + 1);
+    //获取当前的日
+    console.log(t.getDate());
+    //获取当前的周几
+    console.log(t.getDay());   //周日为0；
+    //获取当前的小时
+    console.log(t.getHours());   
+    //获取当前的分钟
+    console.log(t.getMinutes());   
+    //获取当前的秒
+    console.log(t.getSeconds());   
+
+
+    let arr = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+    console.log(arr[new Date().getDay()]);
+
+    function fn(){
+        let t = new Date();
+        let y = t.getFullYear();
+        
+    }
+
+    
+    
+    </script>
+</body>
+</html>
