@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 计算字符串中某个字符的个数
+        // 统计字符串最大出现次数
+        let str = '11333d'
+        let obj = {};
+        function fn(a,b){
+        for (let i = 0; i < b.length; i++) {
+            obj[b[i]] = !obj[b[i]]? 1: obj[b[i]] + 1;
+           
+            /* 
+            b = '11333d'  obj={}
+            obj[0]false = obj[1] = 1; 
+            obj[1]true = obj[1] = 2
+            obj[2]false = obj[3] = 1
+            obj[3]true = obj[3] = 2
+            obj[4]true  = obj[3] = 3
+            obj[5]false = obj[d] = 1
+            obj = { 1:2,3:3 ,d:1}
+            
+             */
+        }
+        //获取到某个字符的个数
+        console.log(obj[a])
+        //获取到次数最多的次数
+        console.log( Math.max(...Object.values(obj)));
+
+        var sortAry=Object.entries(obj).sort((a,b)=>a[1]-b[1])
+        //获取到出现次数最多的key值
+        let arr = sortAry.filter(item=>item[1]==sortAry[sortAry.length-1][1]).map((item)=>item[0]);
+        arr.unshift( Math.max(...Object.values(obj)));
+        console.log(arr)
+        // console.log(sortAry[sortAry.length-1][0])
+        }
+        fn('1',str)
+    
+    </script>
+</body>
+</html>

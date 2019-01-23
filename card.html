@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+#removeDuplicate {
+    width: 420px;
+    height: 448px;
+    margin: 0 auto;
+}
+#removeDuplicate li {
+    width: 80px;
+    height: 100px;
+    margin: 5px;
+    border: 1px solid pink;
+    box-sizing: content-box;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 3px 3px 2px 2px #aaa;
+}
+#removeDuplicate div{
+    width: 80px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#removeDuplicate .layer {
+    transform-origin: bottom left;
+    background: url(./img/timg11.jpg) no-repeat center;
+    background-size:cover;
+    z-index: 1;
+    transition: all 0.3s ease-in;
+}
+</style>
+<body>
+    <div id="removeDuplicate">
+        <p id="p"></p>
+        <ul>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+            <li>
+                <div class="layer"></div>
+                <div></div>
+            </li>
+        </ul>
+     </div>
+</body>
+<script>
+let duplicate = document.getElementById('removeDuplicate');
+let card = duplicate.getElementsByTagName('div');
+let timer = null;
+let array = [];
+let first = last = null
+for(let i = 0; i < card.length / 4; i++) {
+    array.push(i);
+    array.push(i);
+}
+function shuffle(arr) {
+    let i = arr.length;
+    while (i) {
+        let j = Math.floor(Math.random() * i--);
+        [arr[j], arr[i]] = [arr[i], arr[j]];
+    }
+    return arr;
+}
+shuffle(array);
+clearInterval(timer)
+for(let i = 0; i < card.length / 2; i++) {
+    card[i * 2 + 1].innerText = array[i];  
+        card[i * 2].onclick = function() {
+            open(i);         
+        }
+}
+function open(index) {
+    let needChange = first;
+    first = last;
+    last = index;
+    card[index * 2].style.transform = 'rotate(-90deg)';
+    if(needChange !== null && first !== null && array[needChange] === array[first]) {
+        first = null;
+    } else if(needChange !== null && first !== null && array[needChange] !== array[first]) {
+        card[needChange * 2].style.transform = 'rotate(0deg)';
+    }
+}
+
+
+
+</script>
+</html>
